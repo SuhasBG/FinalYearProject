@@ -16,6 +16,9 @@ def generate_frames():
             ret,buffer=cv2.imencode('.jpg',frame)
             frame=buffer.tobytes()
 
+        gc1 = gesture.GestureController()
+        gc1.start()
+        gc1.recognize_async(gesture.image, 100)
         yield(b'--frame\r\n'
                     b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
