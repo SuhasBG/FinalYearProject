@@ -404,7 +404,7 @@ class GestureController:
                         mp_drawing.draw_landmarks(image, hand_landmarks, mp_hands.HAND_CONNECTIONS)
                 else:
                     Controller.prev_hand = None
-                # cv2.imshow('Gesture Controller', image)
+                cv2.imshow('Gesture Controller', image)
                 if cv2.waitKey(5) & 0xFF == 13:
                     break
         GestureController.cap.release()
